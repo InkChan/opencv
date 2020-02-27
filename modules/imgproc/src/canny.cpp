@@ -842,6 +842,8 @@ void Canny( InputArray _src, OutputArray _dst,
         L2gradient = true;
     }
 
+    //判别条件1：aperture_size为偶数
+    //判别条件2：aperture_size的范围是[3,7]
     if ((aperture_size & 1) == 0 || (aperture_size != -1 && (aperture_size < 3 || aperture_size > 7)))
         CV_Error(CV_StsBadFlag, "Aperture size should be odd between 3 and 7");
 
